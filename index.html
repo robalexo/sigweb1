@@ -18,7 +18,7 @@
             margin: 0;
         }
         </style>
-        <title>MAPA DE CALI</title>
+        <title>MAPA DE SANTIAGO DE CALI</title>
     </head>
     <body>
         <div id="map">
@@ -129,20 +129,12 @@
         function pop_comunas_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">COMUNA</th>\
-                        <td>' + (feature.properties['COMUNA'] !== null ? autolinker.link(feature.properties['COMUNA'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">NOMBRE</th>\
                         <td>' + (feature.properties['NOMBRE'] !== null ? autolinker.link(feature.properties['NOMBRE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">AREA</th>\
                         <td>' + (feature.properties['AREA'] !== null ? autolinker.link(feature.properties['AREA'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">PERIMETRO</th>\
-                        <td>' + (feature.properties['PERIMETRO'] !== null ? autolinker.link(feature.properties['PERIMETRO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -152,14 +144,11 @@
             return {
                 pane: 'pane_comunas_2',
                 opacity: 1,
-                color: 'rgba(255,1,1,1.0)',
+                color: 'rgba(0,0,255,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 2.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,1,1,0.23137254901960785)',
                 interactive: true,
             }
         }
@@ -213,7 +202,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/comunas_2.png" /> comunas': layer_comunas_2,'<img src="legend/PlaneacinMunicipalPermetrourbanoao2000_1.png" /> Planeación Municipal: Perímetro urbano año 2000': layer_PlaneacinMunicipalPermetrourbanoao2000_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/comunas_2.png" /> Comunas': layer_comunas_2,'<img src="legend/PlaneacinMunicipalPermetrourbanoao2000_1.png" /> Perimetro urbano 2000': layer_PlaneacinMunicipalPermetrourbanoao2000_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
